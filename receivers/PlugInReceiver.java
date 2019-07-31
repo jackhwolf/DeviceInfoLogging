@@ -1,4 +1,4 @@
-package CUSTOM.PACKAGE.NAME.Receivers;
+package CUSTOM.PACKAGE.NAME.receivers;
 
 import CUSTOM.PACKAGE.NAME.workers.PlugWorker;
 import CUSTOM.PACKAGE.NAME.workers.WorkerCommon;
