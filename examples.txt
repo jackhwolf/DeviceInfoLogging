@@ -1,0 +1,58 @@
+This file contains examples of how to use each worker and notes on
+any quirks to be aware of when using them
+
+1) BatteryWorker.java:
+
+      // within MainActivity.java, so `this` refers to a MainActivity instance
+      // example method which would be called upon app startup
+      public void appStarted() {
+        ...
+        BatteryWorker.TriggerBatteryWorker(this);
+        ...
+      }
+
+2) SessionActivityWorker.java
+
+      // example method which would be called upon app startup
+      public void appStarted() {
+        ...
+        SessionActivityWorker.TriggerSessionActivityWorker("start");
+        ...
+      }
+
+3) UploadWorker.java
+
+    Example 1:
+      // MainActivity.java, so `this` refers to a MainActivity instance
+      // example method which would be called upon app closing
+      public void appClosed() {
+        ...
+        UploadWorker.TriggerUploadWorker(this);
+        ...
+      }
+
+    Example 2:
+      // called from w/in BatteryWorker
+      // push upload when battery is critically low
+      @Override
+      public Result doWork() {
+        ...
+        UploadWorker.TriggerUploadWorker(mAct);
+        ...
+      }
+
+4) VideoActivityWorker.java
+
+      // example method which would be called upon video recording start
+      public void videoRecordingStarted() {
+        ...
+        VideoActivityWorker.TriggerVideoWorker(WorkerCommon.DataType.VID_START);
+        ...
+      }
+
+
+5) Plugworker.java
+
+      only called in:
+        - receivers/PlugInReceiver.java
+        - receivers/UnplugReceiver.java
