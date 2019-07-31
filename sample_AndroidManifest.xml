@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+
+    <application>
+
+        <!-- register receivers to log device plugin/unplug -->
+        <receiver android:name="CUSTOM.PACKAGE.NAME.receivers.PlugInReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="CUSTOM.PACKAGE.NAME.receivers.UnplugReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- rest of manifest application tag code -->
+
+    </application>
+
+    <!-- rest of manifest code -->
+
+</manifest>
